@@ -1,0 +1,2 @@
+rootProject.name='Bankify'
+include ':app'
