@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bankify">
 
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +12,7 @@
         android:roundIcon="@drawable/bank_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Fingerprint.FingerAuth"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" />
