@@ -3,4 +3,10 @@
     <color name="colorPrimary">#4b90d1</color>
     <color name="colorPrimaryDark">#4b90d1</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <!--Core-->
+    <color name="darkgray">#6c6c6c</color>
+    <color name="black">#000</color>
+
+
 </resources>

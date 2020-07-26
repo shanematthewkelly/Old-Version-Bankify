@@ -2,6 +2,7 @@ package com.example.bankify.Fingerprint;
 
 import android.Manifest;
 import android.app.KeyguardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
@@ -29,6 +30,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.bankify.Fingerprint.Passcode.PasscodeHandler;
 import com.example.bankify.R;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -49,8 +51,10 @@ import javax.crypto.SecretKey;
 public class FingerAuth extends AppCompatActivity {
 
     private KeyStore keyStore;
-    private static final String KEY_NAME="ClimAwareFingerPrint";
+    private static final String KEY_NAME="BankifyPrint";
     private Cipher cipher;
+    private TextView passcodeText;
+    Context context = this;
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -69,6 +73,16 @@ public class FingerAuth extends AppCompatActivity {
 
         ConstraintLayout fingerprintCanvas = findViewById(R.id.fingerprintCanvas);
         fingerprintCanvas.setAnimation(SmallToBig);
+
+        passcodeText = findViewById(R.id.passcodeText);
+        passcodeText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toPasscode = new Intent(context, PasscodeHandler.class);
+                startActivity(toPasscode);
+                finish();
+            }
+        });
 
 
         KeyguardManager keyguardManager = (KeyguardManager)getSystemService(KEYGUARD_SERVICE);

@@ -16,10 +16,13 @@ import android.widget.TextView;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.bankify.Fingerprint.FingerAuth;
 
+import static android.view.View.VISIBLE;
+
 public class StartScreen extends AppCompatActivity {
 
     Context context = this;
     private TextView bankifyTitle, getBankifyDesc;
+    private LottieAnimationView lottieAnim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,8 @@ public class StartScreen extends AppCompatActivity {
         getStartedBtn.setAnimation(BottomToTop);
         bankifyTitle.setAnimation(TopToBottom);
         getBankifyDesc.setAnimation(TopToBottom);
+
+
 
     }
 }

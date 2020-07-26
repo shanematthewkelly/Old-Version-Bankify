@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Fingerprint.FingerAuth"/>
+        <activity android:name=".Fingerprint.Passcode.PasscodeHandler"/>
+        <activity android:name=".Fingerprint.Passcode.PasscodeCreate"/>
+        <activity android:name=".Fingerprint.Passcode.PasscodeActivity"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" />
