@@ -12,10 +12,10 @@ The application arichecture will use/will be implementing the following componen
 (2) - RecyclerView Delegates by Hannes Dorfmann (sockeqwe) will be used for reusing elements and implementing the majority of views into recyclerviews. - https://github.com/sockeqwe/AdapterDelegates
 
 <img src="https://miro.medium.com/max/1050/0*NvuouBQwiXIG3bB5."/>
-<br>
 
 References:
 
 (1) - https://medium.com/revolut/reactive-data-flow-in-revolut-android-app-30a49fa1572e#:~:text=When%20the%20loading%20value%20is,needs%20some%20action%20from%20user%E2%80%9D.
+<br>
 <br>
 (2) - https://medium.com/revolut/building-new-features-using-recyclerview-only-aa7db3d8f282
