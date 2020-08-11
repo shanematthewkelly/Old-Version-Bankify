@@ -10,25 +10,19 @@ import android.os.Build;
 import android.os.Bundle;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyProperties;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
+
 
 import com.example.bankify.Fingerprint.Passcode.PasscodeHandler;
 import com.example.bankify.R;
@@ -53,7 +47,6 @@ public class FingerAuth extends AppCompatActivity {
     private KeyStore keyStore;
     private static final String KEY_NAME="BankifyPrint";
     private Cipher cipher;
-    private TextView passcodeText;
     Context context = this;
 
 
@@ -74,7 +67,7 @@ public class FingerAuth extends AppCompatActivity {
         ConstraintLayout fingerprintCanvas = findViewById(R.id.fingerprintCanvas);
         fingerprintCanvas.setAnimation(SmallToBig);
 
-        passcodeText = findViewById(R.id.passcodeText);
+        TextView passcodeText = findViewById(R.id.passcodeText);
         passcodeText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +85,7 @@ public class FingerAuth extends AppCompatActivity {
 
             return;
 
+        assert fingerprintManager != null;
         if (!fingerprintManager.isHardwareDetected())
             Toast.makeText(this, "Fingerprint authertication not enabled", Toast.LENGTH_SHORT).show();
 
@@ -100,6 +94,7 @@ public class FingerAuth extends AppCompatActivity {
                 Toast.makeText(this, "Register at least one fingeerprint in Settings", Toast.LENGTH_SHORT).show();
 
             else {
+                assert keyguardManager != null;
                 if (!keyguardManager.isKeyguardSecure())
                     Toast.makeText(this, "Lock screen security not enabled in Settings", Toast.LENGTH_SHORT).show();
                 else {
