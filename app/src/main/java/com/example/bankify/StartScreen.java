@@ -14,9 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.bankify.Fingerprint.FingerAuth;
-
-import static android.view.View.VISIBLE;
+import com.example.bankify.Fingerprint.Biometrics;
 
 public class StartScreen extends AppCompatActivity {
 
@@ -35,7 +33,7 @@ public class StartScreen extends AppCompatActivity {
         getStartedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, FingerAuth.class);
+                Intent intent = new Intent(context, Biometrics.class);
                 startActivity(intent);
                 finish();
             }

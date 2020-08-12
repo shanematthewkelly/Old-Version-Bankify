@@ -18,7 +18,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.bankify.Fingerprint.FingerAuth;
+import com.example.bankify.Fingerprint.Biometrics;
 import com.example.bankify.R;
 
 
@@ -58,7 +58,7 @@ public class PasscodeCreate extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), FingerAuth.class);
+                Intent intent = new Intent(getApplicationContext(), Biometrics.class);
                 startActivity(intent);
                 finish();
             }
@@ -108,7 +108,7 @@ public class PasscodeCreate extends AppCompatActivity {
         super.onBackPressed();
 
         //go to new screen
-        Intent intent = new Intent(getApplicationContext(), FingerAuth.class);
+        Intent intent = new Intent(getApplicationContext(), Biometrics.class);
         startActivity(intent);
         finish();
 
