@@ -2,6 +2,7 @@ package com.example.bankify.Fingerprint.Passcode;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -12,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -20,16 +20,16 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.bankify.Fingerprint.Biometrics;
 import com.example.bankify.Core.MainActivity;
 import com.example.bankify.R;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Objects;
 
 
 public class PasscodeActivity extends AppCompatActivity {
 
     private EditText passcodeInput;
-    private Button passcodeconfirmation;
     private String passcode;
-    private TextView num1, num2, num3, num4, num5, num6, num7, num8, num9, num0;
-    private ImageView deleteInput, gotofingerprint, backarrow;
-    ConstraintLayout mainConstraintPasscode;
+    ConstraintLayout mainConstraintPasscode, mainConst;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,9 @@ public class PasscodeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_passcode);
 
         //hide action bar
-        getSupportActionBar().hide();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Objects.requireNonNull(getSupportActionBar()).hide();
+        }
 
         //animation setup
         Animation SmallToBig = AnimationUtils.loadAnimation(this, R.anim.smalltobig);
@@ -49,23 +51,24 @@ public class PasscodeActivity extends AppCompatActivity {
         SharedPreferences settings = getSharedPreferences("PREFS", 0);
         passcode = settings.getString("passcode", "");
 
-        //init views
+        //bind views
         passcodeInput = findViewById(R.id.passcodeInput);
-        passcodeconfirmation = findViewById(R.id.passcodeconfirmation);
-        num1 = findViewById(R.id.num1);
-        num2 = findViewById(R.id.num2);
-        num3 = findViewById(R.id.num3);
-        num4 = findViewById(R.id.num4);
-        num5 = findViewById(R.id.num5);
-        num6 = findViewById(R.id.num6);
-        num7 = findViewById(R.id.num7);
-        num8 = findViewById(R.id.num8);
-        num9 = findViewById(R.id.num9);
-        num0 = findViewById(R.id.num0);
-        deleteInput = findViewById(R.id.deleteInput);
-        gotofingerprint = findViewById(R.id.gotofingerprint);
-        backarrow = findViewById(R.id.backarrow);
+        Button passcodeconfirmation = findViewById(R.id.passcodeconfirmation);
+        TextView num1 = findViewById(R.id.num1);
+        TextView num2 = findViewById(R.id.num2);
+        TextView num3 = findViewById(R.id.num3);
+        TextView num4 = findViewById(R.id.num4);
+        TextView num5 = findViewById(R.id.num5);
+        TextView num6 = findViewById(R.id.num6);
+        TextView num7 = findViewById(R.id.num7);
+        TextView num8 = findViewById(R.id.num8);
+        TextView num9 = findViewById(R.id.num9);
+        TextView num0 = findViewById(R.id.num0);
+        ImageView deleteInput = findViewById(R.id.deleteInput);
+        ImageView gotofingerprint = findViewById(R.id.gotofingerprint);
+        ImageView backarrow = findViewById(R.id.backarrow);
         mainConstraintPasscode = findViewById(R.id.mainConstraintPasscode);
+        mainConst = findViewById(R.id.main_const);
 
         mainConstraintPasscode.setAnimation(SmallToBig);
 
@@ -189,8 +192,9 @@ public class PasscodeActivity extends AppCompatActivity {
 
                 } else {
 
-                    Toast.makeText(PasscodeActivity.this, "Incorrect Passcode", Toast.LENGTH_SHORT).show();
-                }
+                    Snackbar.make(mainConst, "Whoops! It looks like that is incorrect.", 3000)
+                            .setActionTextColor(getResources().getColor(R.color.white))
+                            .show();                }
             }
         });
     }
