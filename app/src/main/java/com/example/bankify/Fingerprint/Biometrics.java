@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import android.content.Context;
@@ -14,10 +15,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.example.bankify.MainActivity;
+import com.example.bankify.Fingerprint.Passcode.PasscodeHandler;
+import com.example.bankify.Core.MainActivity;
 import com.example.bankify.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
 import java.util.concurrent.Executor;
@@ -26,6 +29,8 @@ public class Biometrics extends AppCompatActivity {
 
     Context context = this;
     private Button loginfingerprint;
+    private ConstraintLayout mainConst;
+    private TextView startPasscodeProcess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,8 @@ public class Biometrics extends AppCompatActivity {
 
         //bind views
         loginfingerprint = findViewById(R.id.loginfingerprint);
+        mainConst = findViewById(R.id.main_const);
+        startPasscodeProcess = findViewById(R.id.passcodeText);
 
         //Biometric Manager
         BiometricManager biometricManager = BiometricManager.from(context);
@@ -51,16 +58,21 @@ public class Biometrics extends AppCompatActivity {
         switch (biometricManager.canAuthenticate()) {
 
             case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
-                Toast.makeText(context, "Sensor is unavailable", Toast.LENGTH_SHORT).show();
+                Snackbar.make(mainConst, "Unfortunately, the fingerprint is not available right now.", 4000)
+                        .setActionTextColor(getResources().getColor(R.color.white))
+                        .show();
                 break;
             case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
-                Toast.makeText(context, "Please register a fingerprint on your device", Toast.LENGTH_SHORT).show();
+                Snackbar.make(mainConst, "Please make sure to register a fingerprint on your device first.", 5000)
+                        .setActionTextColor(getResources().getColor(R.color.white))
+                        .show();
                 break;
             case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
-                Toast.makeText(context, "This device does not have a fingerprint", Toast.LENGTH_SHORT).show();
+                Snackbar.make(mainConst, "Oh no! It looks like you don't have a fingerprint on your device. Please use our passcode instead.", 8000)
+                        .setActionTextColor(getResources().getColor(R.color.white))
+                        .show();
                 break;
             case BiometricManager.BIOMETRIC_SUCCESS:
-                Toast.makeText(context, "Please use the sensor", Toast.LENGTH_SHORT).show();
                 break;
         }
 
@@ -74,8 +86,9 @@ public class Biometrics extends AppCompatActivity {
             @Override
             public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
                 super.onAuthenticationError(errorCode, errString);
-                Toast.makeText(context, "An error occurred logging you in", Toast.LENGTH_SHORT).show();
-            }
+                Snackbar.make(mainConst, "We could not log you in just now!", 3000)
+                        .setActionTextColor(getResources().getColor(R.color.white))
+                        .show();            }
 
             //Authentication Success
             @Override
@@ -92,15 +105,14 @@ public class Biometrics extends AppCompatActivity {
             @Override
             public void onAuthenticationFailed() {
                 super.onAuthenticationFailed();
-                Toast.makeText(context, "Fingerprint not recognised", Toast.LENGTH_SHORT).show();
             }
 
         });
 
         //Dialog Box Prompt
         final BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
-                .setTitle("Login")
-                .setDescription("Please use your fingerprint to login")
+                .setTitle("Secure Biometric Login")
+                .setDescription("Please use your fingerprint to login.")
                 .setNegativeButtonText("Cancel")
                 .build();
 
@@ -110,6 +122,17 @@ public class Biometrics extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 biometricPrompt.authenticate(promptInfo);
+            }
+        });
+
+
+        //Go to passcode activity instead
+        startPasscodeProcess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startPasscodeActivity = new Intent(context, PasscodeHandler.class);
+                startActivity(startPasscodeActivity);
+                finish();
             }
         });
     }

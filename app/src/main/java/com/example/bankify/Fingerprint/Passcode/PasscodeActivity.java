@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.bankify.Fingerprint.Biometrics;
-import com.example.bankify.MainActivity;
+import com.example.bankify.Core.MainActivity;
 import com.example.bankify.R;
 
 

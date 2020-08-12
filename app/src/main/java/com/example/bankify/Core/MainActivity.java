@@ -1,7 +1,8 @@
-package com.example.bankify;
+package com.example.bankify.Core;
 
 import android.os.Bundle;
 
+import com.example.bankify.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
