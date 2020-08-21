@@ -12,7 +12,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
-import com.example.bankify.Fingerprint.Biometrics;
+import com.example.bankify.Biometrics.Biometrics;
+import com.example.bankify.Biometrics.HowToBiometrics;
 import com.example.bankify.R;
 
 import java.util.Objects;
@@ -27,8 +28,6 @@ public class Preloader extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_preloader);
 
         //hide action bar
@@ -54,7 +53,7 @@ public class Preloader extends AppCompatActivity {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(context, Biometrics.class);
+                Intent intent = new Intent(context, HowToBiometrics.class);
                 startActivity(intent);
                 finish();
             }

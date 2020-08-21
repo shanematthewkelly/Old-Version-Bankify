@@ -1,4 +1,4 @@
-package com.example.bankify.Fingerprint.Passcode;
+package com.example.bankify.Biometrics.Passcode;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,7 +17,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.bankify.Fingerprint.Biometrics;
+import com.example.bankify.Biometrics.Biometrics;
 import com.example.bankify.Core.MainActivity;
 import com.example.bankify.R;
 import com.google.android.material.snackbar.Snackbar;
@@ -34,9 +34,6 @@ public class PasscodeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //make the activity on full screen
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_passcode);
 
         //hide action bar

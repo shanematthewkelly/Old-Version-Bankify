@@ -1,4 +1,4 @@
-package com.example.bankify.Fingerprint;
+package com.example.bankify.Biometrics;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.bankify.Fingerprint.Passcode.PasscodeHandler;
+import com.example.bankify.Biometrics.Passcode.PasscodeHandler;
 import com.example.bankify.Core.MainActivity;
 import com.example.bankify.R;
 import com.google.android.material.snackbar.Snackbar;
@@ -35,11 +35,7 @@ public class Biometrics extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //make the activity on full screen
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_finger_auth);
+            setContentView(R.layout.activity_finger_auth);
 
         //hide action bar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -112,7 +108,7 @@ public class Biometrics extends AppCompatActivity {
         //Dialog Box Prompt
         final BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
                 .setTitle("Secure Biometric Login")
-                .setDescription("Please use your fingerprint to login.")
+                .setDescription("Please use the following login methods")
                 .setNegativeButtonText("Cancel")
                 .build();
 

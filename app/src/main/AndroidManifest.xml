@@ -11,11 +11,13 @@
         android:roundIcon="@drawable/bank_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Core.Preloader"></activity>
-        <activity android:name=".Fingerprint.Biometrics" />
-        <activity android:name=".Fingerprint.Passcode.PasscodeHandler" />
-        <activity android:name=".Fingerprint.Passcode.PasscodeCreate" />
-        <activity android:name=".Fingerprint.Passcode.PasscodeActivity" />
+        <activity android:name=".Biometrics.HowToBiometrics"
+            android:screenOrientation="fullSensor"></activity>
+        <activity android:name=".Core.Preloader" />
+        <activity android:name=".Biometrics.Biometrics" />
+        <activity android:name=".Biometrics.Passcode.PasscodeHandler" />
+        <activity android:name=".Biometrics.Passcode.PasscodeCreate" />
+        <activity android:name=".Biometrics.Passcode.PasscodeActivity" />
         <activity
             android:name=".Core.MainActivity"
             android:label="@string/title_activity_main" />
