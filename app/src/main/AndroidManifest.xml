@@ -12,12 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Biometrics.HowToBiometrics"
-            android:screenOrientation="fullSensor"></activity>
-        <activity android:name=".Core.Preloader" />
-        <activity android:name=".Biometrics.Biometrics" />
-        <activity android:name=".Biometrics.Passcode.PasscodeHandler" />
-        <activity android:name=".Biometrics.Passcode.PasscodeCreate" />
-        <activity android:name=".Biometrics.Passcode.PasscodeActivity" />
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".Core.Preloader"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".Biometrics.Biometrics"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".Biometrics.Passcode.PasscodeHandler"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".Biometrics.Passcode.PasscodeCreate"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".Biometrics.Passcode.PasscodeActivity"
+            android:screenOrientation="portrait"></activity>
+
         <activity
             android:name=".Core.MainActivity"
             android:label="@string/title_activity_main" />
@@ -25,7 +36,8 @@
         <activity
             android:name=".Core.StartScreen"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

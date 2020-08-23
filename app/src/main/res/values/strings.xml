@@ -97,4 +97,5 @@
     <string name="payments">Payments</string>
     <string name="account">Account</string>
     <string name="use_biometrics">USE BIOMETRICS</string>
+    <string name="why_we_use_biometrics">WHY WE USE BIOMETRICS</string>
 </resources>
