@@ -14,9 +14,6 @@
         <activity android:name=".Biometrics.HowToBiometrics"
             android:screenOrientation="portrait"></activity>
 
-        <activity android:name=".Core.Preloader"
-            android:screenOrientation="portrait"></activity>
-
         <activity android:name=".Biometrics.Biometrics"
             android:screenOrientation="portrait"></activity>
 
@@ -34,7 +31,7 @@
             android:label="@string/title_activity_main" />
         <activity android:name=".ScrollingActivity" />
         <activity
-            android:name=".Core.StartScreen"
+            android:name=".Core.Preloader"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">

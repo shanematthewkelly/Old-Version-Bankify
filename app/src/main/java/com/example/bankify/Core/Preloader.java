@@ -30,12 +30,6 @@ public class Preloader extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preloader);
 
-        //hide action bar
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Objects.requireNonNull(getSupportActionBar()).hide();
-        }
-
-
         //Animation Setup
         Animation TopToBottom = AnimationUtils.loadAnimation(context, R.anim.top_to_bottom);
         Animation BottomToTop = AnimationUtils.loadAnimation(context, R.anim.bottom_to_top);

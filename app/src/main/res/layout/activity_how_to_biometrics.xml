@@ -24,7 +24,7 @@
 
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/biometricTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -40,7 +40,7 @@
                 app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/biometricDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -48,10 +48,10 @@
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/varela_round"
                 android:paddingRight="60dp"
-                android:text="Biometrics are an advanced layer of both biological and behavioural patterns that allow us to identify you as an individual.\n \nFor security, our application uses Biometrics for logging you into your account in an easy yet secure manner. At Bankify, we value your security and strive to improve it each day. \n \n We will ask you to register one method of Biometrics now in order to add that extra layer of security. You can always opt into turning this off at a later time. \n \n If your device does not offer a Biometric solution, please use the passcode for logging into your account instead.   "
+                android:text="Biometrics are an advanced layer of both biological and behavioural patterns that allow us to identify you as an individual.\n \nFor security, our application uses Biometrics for logging you into your account in an easy yet secure manner. At Bankify, we value your security and strive to improve it each day. \n \nWe will ask you to register one method of Biometrics now in order to add that extra layer of security. You can always opt into turning this off at a later time. \n \nIf your device does not offer a Biometric solution, please use the passcode for logging into your account instead.   "
                 android:textColor="#b5b1b1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/biometricTitle" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
@@ -77,7 +77,7 @@
                 app:layout_constraintTop_toTopOf="@+id/guideline">
 
                 <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/lottieCard"
+                    android:id="@+id/biometricLottie"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -86,7 +86,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/biometrics1" />
+                    app:lottie_rawRes="@raw/biometrictest" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
