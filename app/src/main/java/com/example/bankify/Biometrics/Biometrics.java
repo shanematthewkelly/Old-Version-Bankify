@@ -132,4 +132,9 @@ public class Biometrics extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        //Do not allow to go back here.
+    }
 }

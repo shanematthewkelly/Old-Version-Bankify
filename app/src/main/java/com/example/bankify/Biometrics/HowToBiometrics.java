@@ -39,7 +39,7 @@ public class HowToBiometrics extends AppCompatActivity {
         Animation ZoomIn = AnimationUtils.loadAnimation(context, R.anim.smalltobig);
 
         //init view
-        toBiometrics = findViewById(R.id.ToBiometrics);
+        toBiometrics = findViewById(R.id.loginfingerprint);
         biometricLottie = findViewById(R.id.biometricLottie);
         biometricTitle = findViewById(R.id.biometricTitle);
         biometricDesc = findViewById(R.id.biometricDesc);

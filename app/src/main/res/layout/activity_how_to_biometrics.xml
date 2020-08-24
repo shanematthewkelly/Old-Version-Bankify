@@ -95,9 +95,9 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/ToBiometrics"
+        android:id="@+id/loginfingerprint"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
@@ -105,9 +105,9 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/app_main_button"
         android:fontFamily="@font/varela_round"
-        android:text="LETS DO IT"
+        android:text="Okay, lets Go!"
         android:textColor="#fff"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
